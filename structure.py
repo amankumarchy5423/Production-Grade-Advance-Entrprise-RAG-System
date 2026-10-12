@@ -1,7 +1,7 @@
 
 from pathlib import Path
 
-PROJECT_NAME = "aman-enterprise-rag"
+PROJECT_NAME = "Production-Grade-Advance-Entrprise-RAG-System"
 
 DIRECTORIES = [
     "src/aman-enterprise_rag/api/routes",
@@ -165,24 +165,24 @@ FILES = [
 
 
 def create_project_structure():
-    root = Path(PROJECT_NAME)
-    root.mkdir(parents=True, exist_ok=True)
+    # root = Path(PROJECT_NAME)
+    # root.mkdir(parents=True, exist_ok=True)
 
     created_dirs = 0
     created_files = 0
     existing_files = 0
 
     for directory in DIRECTORIES:
-        path = root / directory
+        path = Path(directory)
 
         if not path.exists():
             path.mkdir(parents=True, exist_ok=True)
             created_dirs += 1
 
     package_dirs = [
-        root / "src" / "enterprise_rag",
+         "src" / "enterprise_rag",
         *[
-            root / directory
+            directory
             for directory in DIRECTORIES
             if directory.startswith("src/enterprise_rag/")
         ],
@@ -207,7 +207,7 @@ def create_project_structure():
     #     path.touch()
     #     created_files += 1
 
-    print(f"\nProject created at: {root.resolve()}")
+    # print(f"\nProject created at: {root.resolve()}")
     print(f"Directories created: {created_dirs}")
     print(f"Files created:      {created_files}")
     print(f"Files preserved:    {existing_files}")
